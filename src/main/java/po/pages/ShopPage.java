@@ -1,7 +1,6 @@
 package po.pages;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class ShopPage extends AbstractPage{
     private static  final By SELECT_ALMATY_CITY_LOCATOR =By.xpath("//a[contains(text(), 'Алматы')]");
@@ -19,6 +18,7 @@ public class ShopPage extends AbstractPage{
         return this;
     }
     public SearchResultPage searchEnteredQuery(){
+        //TODO:add waiter
         driver.findElement(SEARCH_BUTTON_LOCATOR).click();
         return new SearchResultPage(driver);
     }

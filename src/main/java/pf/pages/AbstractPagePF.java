@@ -1,14 +1,17 @@
-package po.pages;
+package pf.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
-public class AbstractPage {
+public class AbstractPagePF {
     private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 10;
     protected WebDriver driver;
 
-    public AbstractPage(WebDriver driver) {
+    public AbstractPagePF(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
 
     public boolean isElementPresent(By locator) {
