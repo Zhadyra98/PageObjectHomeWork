@@ -1,15 +1,17 @@
-package pf.pages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import po.pages.GuidePage;
+import po.pages.HomePage;
+import po.pages.ItemPage;
+import po.pages.MapsPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class KaspiTest {
+public class KaspiTestPO {
     private WebDriver driver;
 
     @BeforeTest(description = "Start browser")
@@ -26,16 +28,16 @@ public class KaspiTest {
 
     @Test(description = "Change the city at Maps tab")
     public void changeCityOfSystemTest() {
-        MapsPagePF mapsPage = new HomePagePF(driver).open().startMapsPage().selectSemeyAsCity();
+        MapsPage mapsPage = new HomePage(driver).open().startMapsPage().selectSemeyAsCity();
         Assert.assertEquals(mapsPage.getCity(),"Семей");
     }
     @Test(description = "Select one item and show sellers list")
     public void selectOneItemTest(){
-        ItemPagePF itemPage = new HomePagePF(driver).open().startShopPage().fillSearchInput("iphone 12").searchEnteredQuery().openFirstIem().showSellersList();
+        ItemPage itemPage = new HomePage(driver).open().startShopPage().fillSearchInput("iphone 12").searchEnteredQuery().openFirstIem().showSellersList();
     }
     @Test(description = "check that corresponding to entered data in Guide tap are displayed")
     public void searchingWordInGuideTabTest() {
-        GuidePagePF guidePage = new HomePagePF(driver).open().startGuidePage().enterQueryToSearchBox("депозит").searchButtonClick();
+        GuidePage guidePage = new HomePage(driver).open().startGuidePage().enterQueryToSearchBox("депозит").searchButtonClick();
         Assert.assertTrue(guidePage.getTextOfInputSearchSpan().contains("депозит"));
     }
 

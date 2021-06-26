@@ -3,7 +3,7 @@ package po.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends AbstractPage{
+public class HomePage extends AbstractPage {
     private static  final By MAPS_TAP_LINK_LOCATOR =By.xpath("//a[contains(text(),'Maps')]");
     private static final By SHOP_TAP_LINK_LOCATOR =By.xpath("//a[contains(text(), 'Магазин')]");
     private static final By GUIDE_TAP_LINK_LOCATOR=By.xpath("//div[@id='headerMenu']//a[contains(text(), 'Гид')]");
